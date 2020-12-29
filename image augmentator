@@ -1,0 +1,18 @@
+from PIL import Image
+import os
+
+def rotateImages(degrees):
+    print(os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Satelitte Images"))
+    for image in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Satelitte Images"):
+            parts = image.split(".")
+            newname =  parts[0] + "_" + str(degrees) + 'rotation'
+            pathfile = 'C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Augmented images\\'
+            newpath = pathfile + newname + '.jpg'
+            img = Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Satelitte Images\\" + image)
+            img.rotate(degrees, expand=True).save(newpath)
+            img.close
+
+rotateImages(90)
+rotateImages(180)
+rotateImages(270)
+
