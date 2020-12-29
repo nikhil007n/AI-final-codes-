@@ -1,0 +1,21 @@
+import os
+
+for text in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations"):
+    f = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    lines = f.readlines()
+    f.close
+    g = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text, "w")
+    newlines = []
+    for line in lines:
+        linesprep = line[2:]
+        finalline = "0" + linesprep
+        newlines.append(finalline)
+    print(newlines)
+    g.writelines(newlines)
+    g.close
+        
+
+
+
+
+
