@@ -64,7 +64,7 @@ for text in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 
     for line in lines:
         j = line.split(" ")
         newcentre_y = str(round(1.0-float(j[1]), 6))
-        newlines.append(j[0] + " " + j[2] + " " + newcentre_x + " " + j[4][0:8] + " " + j[3] + "\n")
+        newlines.append(j[0] + " " + j[2] + " " + newcentre_y + " " + j[4][0:8] + " " + j[3] + "\n")
         #newlines.append(j[0] + " " + j[2] + " " + j[1] + " " + j[4][0:8] + " " + j[3] + "\n")
     print(newlines)
     g.writelines(newlines)
