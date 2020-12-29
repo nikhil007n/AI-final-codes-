@@ -1,0 +1,71 @@
+import os
+import PIL
+
+#for 90 degree rotation
+for text in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations"):
+    #image = PIL.Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    #x, y = image.size
+    #image.close
+
+    f = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    m = text.split(".")
+    lines = f.readlines()
+    f.close
+
+    g = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Augmented images\\" + m[0] + "_90rotation" + "." + m[1], "w")
+    newlines = []
+    for line in lines:
+        j = line.split(" ")
+        newcentre_x = str(round(1.0-float(j[2]), 6))
+        newlines.append(j[0] + " " + newcentre_x + " " + j[1] + " " + j[4][0:8] + " " + j[3] + "\n")
+        #newlines.append(j[0] + " " + j[2] + " " + j[1] + " " + j[4][0:8] + " " + j[3] + "\n")
+    print(newlines)
+    g.writelines(newlines)
+    g.close
+        
+#for 180 degree rotation
+
+for text in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations"):
+    #image = PIL.Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    #x, y = image.size
+    #image.close
+
+    f = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    m = text.split(".")
+    lines = f.readlines()
+    f.close
+
+    g = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Augmented images\\" + m[0] + "_180rotation" + "." + m[1], "w")
+    newlines = []
+    for line in lines:
+        j = line.split(" ")
+        newcentre_x = str(round(1.0-float(j[2]), 6))
+        newcentre_y = str(round(1.0-float(j[1]), 6))
+        newlines.append(j[0] + " " + newcentre_y + " " + newcentre_x + " " + j[3] + " " + j[4])
+        #newlines.append(j[0] + " " + j[2] + " " + j[1] + " " + j[4][0:8] + " " + j[3] + "\n")
+    print(newlines)
+    g.writelines(newlines)
+    g.close
+     
+
+#for 270 degree rotation
+for text in os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations"):
+    #image = PIL.Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    #x, y = image.size
+    #image.close
+
+    f = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Fire annotations\\" + text)
+    m = text.split(".")
+    lines = f.readlines()
+    f.close
+
+    g = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Augmented images\\" + m[0] + "_270rotation" + "." + m[1], "w")
+    newlines = []
+    for line in lines:
+        j = line.split(" ")
+        newcentre_y = str(round(1.0-float(j[1]), 6))
+        newlines.append(j[0] + " " + j[2] + " " + newcentre_x + " " + j[4][0:8] + " " + j[3] + "\n")
+        #newlines.append(j[0] + " " + j[2] + " " + j[1] + " " + j[4][0:8] + " " + j[3] + "\n")
+    print(newlines)
+    g.writelines(newlines)
+    g.close
