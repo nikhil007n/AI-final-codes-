@@ -2,17 +2,16 @@ import os
 from PIL import Image
 import random
 
-i=0
-while i<1960:    #1960 is the total number of images including augmented images
-    picslist = os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations")
-    images = []
-    texts = []
-    for files in picslist:
+picslist = os.listdir("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations")
+images = []
+texts = []
+for files in picslist:
         if files.endswith(".jpg"):
             images.append(files)
         elif files.endswith(".txt"):
             texts.append(files)
-
+i=0
+while i<1960:    #1960 is the total number of images including augmented images
     randomindex = random.randint(0, 1959-i)
     img = Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations\\" + images[randomindex])
     img.save("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Randomised images and annotations\\" + str(i) + ".jpg")
@@ -27,4 +26,3 @@ while i<1960:    #1960 is the total number of images including augmented images
     newtxt.close
     texts.pop(randomindex)
     i = i + 1
-
