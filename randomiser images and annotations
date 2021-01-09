@@ -10,19 +10,22 @@ for files in picslist:
             images.append(files)
         elif files.endswith(".txt"):
             texts.append(files)
+
+print(len(images))
 i=0
 while i<1960:    #1960 is the total number of images including augmented images
     randomindex = random.randint(0, 1959-i)
     img = Image.open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations\\" + images[randomindex])
     img.save("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Randomised images and annotations\\" + str(i) + ".jpg")
-    images.pop(randomindex)
     img.close
 
-    txt = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations\\" + texts[randomindex])
+    name = images[randomindex].split(".")
+    txt = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\All images and annotations\\" + name[0] + ".txt")
     wholetxt = txt.readlines()
     txt.close
     newtxt = open("C:\\Users\\user\\Desktop\\nikhil sisodia\\Physics\\Year 3\\AI project\\Randomised images and annotations\\" + str(i) + ".txt", "w")
     newtxt.writelines(wholetxt)
     newtxt.close
     texts.pop(randomindex)
+    images.pop(randomindex)
     i = i + 1
